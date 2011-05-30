@@ -17,24 +17,34 @@ home_team_id = game_data['data']['game']['hometeamid']
 away_team_id = game_data['data']['game']['awayteamid']
 plays = game_data['data']['game']['plays']['play']
 
+
+# make a pass through the data to build the player list
+# then make another pass to build the actual edge list.
+# i should be able to consolidate these two passses - hey
+# i'm just getting started!!
+
 for play in plays:
-	if play['teamid'] == away_team_id:
-		pid1_team = away_team
-		pid2_team = home_team
-	else:
-		pid1_team = home_team
-		pid2_team = away_team
 
 	if play['type'] == 'Hit':
+		# determine if the source player (pid1) is home or away
+		# for purposes of retrieving team name
+		if play['teamid'] == away_team_id:
+			pid1_team = away_team
+			pid2_team = home_team
+		else:
+			pid1_team = home_team
+			pid2_team = away_team
 		players[play['p1name']] = {"player_id" : play['pid1'], "team": pid1_team}
 		players[play['p2name']] = {"player_id" : play['pid2'], "team": pid2_team}
 
+# create the gephi file
 f = open(game_id+'.gdf','w')
 f.write('nodedef> name VARCHAR, label VARCHAR, team VARCHAR\n')
 
 for k,v in players.iteritems():
 	f.write('%s,%s,%s\n' % (v['player_id'],k, v['team']))
 
+# create the edges
 f.write('edgedef> source VARCHAR, target VARCHAR\n')
 
 
