@@ -1,0 +1,86 @@
+nodedef> name VARCHAR, label VARCHAR, team VARCHAR
+8475149,Marcus Johansson,Washington Capitals
+8468478,Mike Weaver,Florida Panthers
+8458590,Mike Knuble,Washington Capitals
+8474149,Evgeny Dadonov,Florida Panthers
+8472361,Bill Thomas,Florida Panthers
+8473913,Sean Collins,Washington Capitals
+8473563,Nicklas Backstrom,Washington Capitals
+8471697,Niclas Bergfors,Florida Panthers
+8469639,Brooks Laich,Washington Capitals
+8471842,Tim Kennedy,Florida Panthers
+8474520,Jason Garrison,Florida Panthers
+8471266,David Booth,Florida Panthers
+8473991,Karl Alzner,Washington Capitals
+8475179,Dmitry Kulikov,Florida Panthers
+8470321,Patrick Rissmiller,Florida Panthers
+8471214,Alex Ovechkin,Washington Capitals
+8469457,Stephen Weiss,Florida Panthers
+8470159,Boyd Gordon,Washington Capitals
+8466251,Jason Chimera,Washington Capitals
+8474590,John Carlson,Washington Capitals
+8467365,John Erskine,Washington Capitals
+8471390,Mike Santorelli,Florida Panthers
+8464967,Marty Reasoner,Florida Panthers
+8465059,Matt Bradley,Washington Capitals
+8471240,Jeff Schultz,Washington Capitals
+8474153,Michal Repik,Florida Panthers
+8474184,Keaton Ellerby,Florida Panthers
+8466158,Scott Hannan,Washington Capitals
+8470086,Joe Callahan,Florida Panthers
+8470120,Alexander Semin,Washington Capitals
+8474291,Jay Beagle,Washington Capitals
+8472262,Clay Wilson,Florida Panthers
+8471681,Jack Skille,Florida Panthers
+8466035,Sergei Samsonov,Florida Panthers
+8468611,Matt Hendricks,Washington Capitals
+edgedef> source VARCHAR, target VARCHAR
+8467365,8471390
+8470086,8474291
+8471681,8473563
+8474153,8466158
+8474590,8471842
+8471681,8471214
+8475179,8468611
+8470159,8471681
+8468478,8466251
+8473563,8471681
+8475179,8470159
+8471842,8467365
+8468611,8474520
+8474184,8468611
+8466158,8471842
+8471390,8466158
+8469457,8466251
+8469639,8474520
+8470159,8472262
+8471681,8471240
+8473563,8470321
+8474149,8473563
+8473913,8471842
+8469639,8471266
+8474184,8465059
+8475149,8474520
+8468611,8471842
+8468478,8474291
+8469457,8468611
+8470159,8474184
+8458590,8474149
+8473991,8470321
+8471240,8469457
+8471214,8472361
+8471266,8471214
+8471697,8466158
+8475179,8475149
+8474291,8474184
+8464967,8471214
+8468478,8468611
+8469639,8470086
+8458590,8468478
+8470086,8468611
+8472262,8474291
+8466035,8465059
+8470120,8469457
+8472361,8467365
+8474153,8474291
+8458590,8474520
