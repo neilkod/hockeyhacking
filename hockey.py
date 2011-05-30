@@ -5,8 +5,10 @@ import string
 players = {}
 nodes = []
 hits = []
-
-game_id = '2010021220'
+#sample url = 'http://live.nhl.com/GameData/20102011/2010020820/PlayByPlay.json'
+# game_id = '2010021220' # panthers vs capitals 09-apr-2011
+# game_id = '2010030317' # lightning vs bruins game 7
+game_id = '2010020820' # buffalo vs panthers - lot of hits
 game_data = game_id + '.json'
 with open(game_data, 'r') as f:
 	game_data = json.load(f)
