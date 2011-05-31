@@ -1,0 +1,4 @@
+hockeyhacking
+=============
+
+hacking some hockey data. inspired by **@BrockTibert** and his excellent blog found at **http://www.brocktibert.com**
