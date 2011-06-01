@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import time, urllib2, json
+from collections import defaultdict
 BASE_URL = 'http://live.nhl.com/GameData/20102011/%s/PlayByPlay.json'
 
 
@@ -8,7 +9,7 @@ BASE_URL = 'http://live.nhl.com/GameData/20102011/%s/PlayByPlay.json'
 def analyze_playoff_data(game1_id, games):
 	players = {}
 	nodes = []
-	hits = []
+	hits = defaultdict(int)
 	
 	
 	gameno = int(str(game1_id)[-1])
@@ -40,7 +41,7 @@ def analyze_playoff_data(game1_id, games):
 			for play in plays:
 				if play['type'] == 'Hit':
 
-					hits.append((play['pid2'], play['pid1'] ))
+					hits[(play['pid2'], play['pid1'] )] += 1
 			print "game is %s hits is %s" % (gameno,len(hits))
 			game_id += 1
 			gameno += 1
@@ -51,9 +52,10 @@ def analyze_playoff_data(game1_id, games):
 	for k,v in players.iteritems():
 		f.write('%s,%s,%s\n' % (v['player_id'],k, v['team']))
 	# create the edges
-	f.write('edgedef> source VARCHAR, target VARCHAR\n')
-	for (source, target) in set(hits):
-		f.write('%d,%d\n' % (source, target ))
+	f.write('edgedef> source VARCHAR, target VARCHAR, hit_cnt INT\n')
+	for (p1,p2),hit_count in hits.iteritems():
+
+		f.write('%d,%d,%d\n' % (p1,p2, hit_count ))
 	f.close()
 
 
@@ -78,13 +80,13 @@ def download_playoff_game_data(game_id, games):
 		gm += 1
 		# sleep for 2 seconds so we don't peg the nhl.com
 		# servers with rate requests
-		time.sleep(2)
+		time.sleep(1)
 
 def main():
 	
-	#game1_id = 2010030311 # tbl-bos
-	game1_id = 2010030211 # tbl-was
-	games = 4
+	game1_id = 2010030311 # tbl-bos
+	#game1_id = 2010030211 # tbl-was
+	games = 7
 
 	download_playoff_game_data(game1_id, games)
 	analyze_playoff_data(game1_id,games)	
